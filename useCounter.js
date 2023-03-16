@@ -1,0 +1,25 @@
+ import { useState } from "react";
+ 
+ export const useCounter = (initialValue = 10) =>{
+   const [ counter, setcounter ] = useState(initialValue);
+
+   const increment = (value = 1) => {
+    setcounter(counter+value);
+   }
+
+   const decrement = (value = 1) => {
+    if(counter === 0) return;//con esta linea impido que baje mas de cero
+
+    setcounter(counter-value);
+   }
+
+   const reset = () => {
+    setcounter(10);
+   }
+    return{
+     counter,
+     increment,
+     decrement,
+     reset,
+    }
+ }
